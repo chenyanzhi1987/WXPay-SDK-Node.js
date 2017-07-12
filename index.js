@@ -222,7 +222,8 @@ var WXPay = function (config) {
   if(!(this instanceof WXPay)) {
     throw new TypeError('Please use \'new WXPay\'');
   }
-  var options = ['appId', 'mchId', 'key', 'certFileContent', 'caFileContent'];
+  // var options = ['appId', 'mchId', 'key', 'certFileContent', 'caFileContent'];
+   var options = ['appId', 'mchId', 'key'];
   for (var i=0; i<options.length; ++i) {
     if (!config[options[i]]) {
       throw new Error('Please check '+options[i] + ' in config');
@@ -232,8 +233,8 @@ var WXPay = function (config) {
   this.APPID = config['appId'];
   this.MCHID = config['mchId'];
   this.KEY = config['key'];
-  this.CERT_FILE_CONTENT = config['certFileContent'];
-  this.CA_FILE_CONTENT = config['caFileContent'];
+  // this.CERT_FILE_CONTENT = config['certFileContent'];
+  // this.CA_FILE_CONTENT = config['caFileContent'];
 
   this.TIMEOUT = config['timeout'] || _DEFAULT_TIMEOUT;
   this.SIGN_TYPE = config['signType'] || WXPayConstants.SIGN_TYPE_MD5;
@@ -376,7 +377,7 @@ WXPay.prototype.requestWithoutCert = function(url, reqData, timeout) {
  * @param {object} reqData
  * @param {int} timeout
  * @returns {Promise}
- */
+
 WXPay.prototype.requestWithCert = function(url, reqData, timeout) {
   var self = this;
   return new Promise(function(resolve, reject) {
@@ -403,6 +404,7 @@ WXPay.prototype.requestWithCert = function(url, reqData, timeout) {
     });
   });
 };
+ */
 
 /**
  * 提交刷卡支付
