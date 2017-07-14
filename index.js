@@ -121,6 +121,7 @@ var WXPayUtil = {
         }
       }
     }
+      console.log("combineStr===="+combineStr)
     if (combineStr.length == 0) {
       throw new Error("There is no data to generate signature");
     }
